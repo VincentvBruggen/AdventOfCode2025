@@ -6,8 +6,8 @@ func _ready() -> void:
 	pressed.connect(_on_button_pressed)
 
 func _on_button_pressed():
-	var output: int = 50
-	var real_output: int = 0
+	var dial: int = 50
+	var output: int = 0
 	
 	for line in input:
 		var regex = RegEx.new()
@@ -22,17 +22,17 @@ func _on_button_pressed():
 			
 			if letter == "R":
 				for i in number:
-					output += 1
-					if output > 99:
-						output = 0
-					if output == 0:
-						real_output +=1
+					dial += 1
+					if dial > 99:
+						dial = 0
+					if dial == 0:
+						output +=1
 			else:
 				for i in number:
-					output -= 1
-					if output < 0:
-						output = 99
-					if output == 0:
-						real_output +=1
+					dial -= 1
+					if dial < 0:
+						dial = 99
+					if dial == 0:
+						output +=1
 				
-	print(real_output)
+	print(output)
